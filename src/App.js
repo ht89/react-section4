@@ -19,12 +19,9 @@ class App extends Component {
         const characters = this.state.input.split('');
         characters.splice(index, 1);
 
-        const updatedInput = characters.join('');
-        const updatedChars = characters;
-
         this.setState({
-            input: updatedInput,
-            chars: updatedChars
+            input: characters.join(''),
+            chars: characters
         });
     }
 
