@@ -5,15 +5,13 @@ import Char from './Char/Char';
 
 class App extends Component {
     state = {
-        inputLength: '',
         input: '',
         chars: []
     };
 
     textChangeHandler = (event) => {
         this.setState({
-            input: event.target.value,
-            inputLength: event.target.value.length
+            input: event.target.value
         });
     }
 
@@ -35,29 +33,22 @@ class App extends Component {
     }
 
     render() {
-        const characters = this.state.input.split('');
-
-        let charEls = null;
-        if (this.state.inputLength > 0) {
-            charEls = (
-                characters.map((char, index) => {
-                    return <Char
-                        letter={char} 
-                        key={index}
-                        delete={() => this.characterDeleteHandler(index)} />;
-                })
-            );
-        }
+        const charList = this.state.input.split('').map((char, index) => {
+            return <Char
+            letter={char} 
+            key={index}
+            delete={() => this.characterDeleteHandler(index)} />;
+        });
 
         return (
             <div className="App">
                 <input type="text" onChange={(event) => this.textChangeHandler(event)} value={this.state.input}/>
 
-                <p>Input length: {this.state.inputLength}</p>
+                <p>{this.state.input}</p>
 
-                <Validation length={this.state.inputLength} />
+                <Validation length={this.state.input.length} />
 
-                {charEls}
+                {charList}
             </div>
         );
     }
