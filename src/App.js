@@ -20,8 +20,7 @@ class App extends Component {
         characters.splice(index, 1);
 
         this.setState({
-            input: characters.join(''),
-            chars: characters
+            input: characters.join('')
         });
     }
 
