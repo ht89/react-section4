@@ -5,8 +5,7 @@ import Char from './Char/Char';
 
 class App extends Component {
     state = {
-        input: '',
-        chars: []
+        input: ''
     };
 
     textChangeHandler = (event) => {
