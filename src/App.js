@@ -17,9 +17,7 @@ class App extends Component {
 
     characterDeleteHandler = (index) => {
         const characters = this.state.input.split('');
-        const characterIndex = this.state.input.split('').findIndex((char, charIndex) => charIndex === index);
-
-        characters.splice(characterIndex, 1);
+        characters.splice(index, 1);
 
         const updatedInput = characters.join('');
         const updatedChars = characters;
